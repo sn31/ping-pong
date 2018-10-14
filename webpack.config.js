@@ -32,8 +32,26 @@ module.exports = {
         test: /\.js$/,
         exclude: [/node_modules/,/spec/],
         loader: "eslint-loader"
+      },
+      {                         
+        test: /\.(js|jsx)$/,
+        exclude: [
+          /node_modules/,
+          /spec/
+        ],
+        loader: "babel-loader",
+        options: {
+          presets: ['es2015']
+        }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader']
       }
+
     ]
   }
+  
   
 };
